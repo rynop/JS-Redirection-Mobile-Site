@@ -125,7 +125,6 @@ SA.redirection_mobile = function(configuration) {
 	var agent = navigator.userAgent.toLowerCase(),
 	
 		// Constants
-		FALSE = "false",
 		TRUE = "true",
 
 		// configuration object
@@ -196,10 +195,11 @@ SA.redirection_mobile = function(configuration) {
 				false;
 	
 	// Check if the device is a Tablet such as iPad, Samsung Tab, Motorola Xoom or Amazon Kindle
+	var isUATablet = false;
 	if (!!(agent.match(/(iPad|SCH-I800|xoom|kindle)/i))) {
 
 		// Check if the redirection needs to happen for iPad
-		var isUATablet = (config.tablet_redirection === TRUE || !!config.tablet_url) ? true : false;
+		isUATablet = (config.tablet_redirection === TRUE || !!config.tablet_url) ? true : false;
 		isUAMobile = false;
 	}
 
